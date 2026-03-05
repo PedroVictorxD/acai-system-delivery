@@ -6,6 +6,7 @@ import { LoginPage } from './pages/Login';
 import { DashboardPage } from './pages/Dashboard';
 import { PedidosPage } from './pages/Pedidos';
 import { CaixaPage } from './pages/Caixa';
+import { CardapioPage } from './pages/Cardapio';
 import { Header } from './components/layout/Header';
 
 function PlaceholderPage({ title }: { title: string }) {
@@ -34,7 +35,7 @@ function App() {
           }>
             <Route index element={<DashboardPage />} />
             <Route path="pedidos" element={<PedidosPage />} />
-            <Route path="cardapio" element={<PlaceholderPage title="Cardápio" />} />
+            <Route path="cardapio" element={<CardapioPage />} />
             <Route path="produtos" element={<PlaceholderPage title="Produtos" />} />
             <Route path="clientes" element={<PlaceholderPage title="Clientes" />} />
             <Route path="caixa" element={<CaixaPage />} />
