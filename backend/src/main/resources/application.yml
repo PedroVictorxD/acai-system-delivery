@@ -26,5 +26,5 @@ server:
   port: 8080
 
 jwt:
-  secret: acai-system-secret-key-change-in-production-min-256-bits-required
+  secret: YWNhaS1zeXN0ZW0tc2VjcmV0LWtleS1jaGFuZ2UtaW4tcHJvZHVjdGlvbi1taW4tMjU2LWJpdHM=
   expiration: 86400000
