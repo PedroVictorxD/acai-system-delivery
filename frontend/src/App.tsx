@@ -1,14 +1,21 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
+import { Layout } from './components/layout/Layout';
 import { LoginPage } from './pages/Login';
+import { DashboardPage } from './pages/Dashboard';
+import { Header } from './components/layout/Header';
 
-function Dashboard() {
+function PlaceholderPage({ title }: { title: string }) {
   return (
-    <div style={{ padding: '2rem', color: '#fff', background: '#1a0a2e', minHeight: '100vh' }}>
-      <h1>🍇 Dashboard — Em construção</h1>
-      <p>Feature 11 trará o layout completo.</p>
-    </div>
+    <>
+      <Header title={title} />
+      <div className="p-6">
+        <div className="bg-surface-100 border border-surface-300 rounded-2xl p-8 text-center">
+          <p className="text-text-muted text-lg">🚧 {title} — Em construção</p>
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -20,9 +27,16 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={
             <ProtectedRoute>
-              <Dashboard />
+              <Layout />
             </ProtectedRoute>
-          } />
+          }>
+            <Route index element={<DashboardPage />} />
+            <Route path="pedidos" element={<PlaceholderPage title="Pedidos" />} />
+            <Route path="cardapio" element={<PlaceholderPage title="Cardápio" />} />
+            <Route path="produtos" element={<PlaceholderPage title="Produtos" />} />
+            <Route path="clientes" element={<PlaceholderPage title="Clientes" />} />
+            <Route path="caixa" element={<PlaceholderPage title="Caixa" />} />
+          </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
