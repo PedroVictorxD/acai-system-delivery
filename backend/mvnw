@@ -1,0 +1,27 @@
+#!/bin/sh
+# Maven Wrapper script
+set -e
+
+MAVEN_WRAPPER_JAR="$(dirname "$0")/.mvn/wrapper/maven-wrapper.jar"
+MAVEN_WRAPPER_PROPERTIES="$(dirname "$0")/.mvn/wrapper/maven-wrapper.properties"
+
+if [ ! -f "$MAVEN_WRAPPER_JAR" ]; then
+    echo "Maven wrapper jar not found. Downloading..."
+    WRAPPER_URL=$(grep 'wrapperUrl' "$MAVEN_WRAPPER_PROPERTIES" | cut -d'=' -f2-)
+    curl -sL "$WRAPPER_URL" -o "$MAVEN_WRAPPER_JAR"
+fi
+
+DIST_URL=$(grep 'distributionUrl' "$MAVEN_WRAPPER_PROPERTIES" | cut -d'=' -f2-)
+DIST_NAME=$(basename "$DIST_URL" .zip)
+MAVEN_HOME="$HOME/.m2/wrapper/dists/$DIST_NAME"
+
+if [ ! -d "$MAVEN_HOME" ]; then
+    echo "Downloading Maven distribution..."
+    mkdir -p "$MAVEN_HOME"
+    curl -sL "$DIST_URL" -o "/tmp/$DIST_NAME.zip"
+    unzip -qo "/tmp/$DIST_NAME.zip" -d "$MAVEN_HOME"
+    rm "/tmp/$DIST_NAME.zip"
+fi
+
+MAVEN_BIN=$(find "$MAVEN_HOME" -name "mvn" -path "*/bin/mvn" | head -1)
+exec "$MAVEN_BIN" "$@"
