@@ -3,7 +3,7 @@
 
 -- Admin padrão (senha: admin123 - BCrypt hash)
 INSERT INTO usuarios (nome, email, senha_hash, role) VALUES
-    ('Administrador', 'admin@acai.com', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'ADMIN');
+    ('Administrador', 'admin@acai.com', '$2b$10$AqN97gBcRZomy8GTHNjh.uPwAD7GcVQM1Bl/IFDwtNEHNijTw.IFK', 'ADMIN');
 
 -- Categorias
 INSERT INTO categorias (nome, descricao, ordem) VALUES
