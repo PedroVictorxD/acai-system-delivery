@@ -4,6 +4,7 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import { Layout } from './components/layout/Layout';
 import { LoginPage } from './pages/Login';
 import { DashboardPage } from './pages/Dashboard';
+import { PedidosPage } from './pages/Pedidos';
 import { Header } from './components/layout/Header';
 
 function PlaceholderPage({ title }: { title: string }) {
@@ -31,7 +32,7 @@ function App() {
             </ProtectedRoute>
           }>
             <Route index element={<DashboardPage />} />
-            <Route path="pedidos" element={<PlaceholderPage title="Pedidos" />} />
+            <Route path="pedidos" element={<PedidosPage />} />
             <Route path="cardapio" element={<PlaceholderPage title="Cardápio" />} />
             <Route path="produtos" element={<PlaceholderPage title="Produtos" />} />
             <Route path="clientes" element={<PlaceholderPage title="Clientes" />} />
