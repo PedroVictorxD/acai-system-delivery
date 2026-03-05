@@ -7,6 +7,7 @@ import { DashboardPage } from './pages/Dashboard';
 import { PedidosPage } from './pages/Pedidos';
 import { CaixaPage } from './pages/Caixa';
 import { CardapioPage } from './pages/Cardapio';
+import { PublicCardapio } from './pages/PublicCardapio';
 import { Header } from './components/layout/Header';
 
 function PlaceholderPage({ title }: { title: string }) {
@@ -28,6 +29,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/pedir" element={<PublicCardapio />} />
           <Route path="/" element={
             <ProtectedRoute>
               <Layout />
